@@ -5,55 +5,59 @@
 
 void printMainMenu(void)
 {
-    printf("\n=== MUNICIPAL FINANCIAL MANAGEMENT SYSTEM ===\n");
+    printf("\n======================================\n");
+    printf("MFMS MANAGEMENT SYSTEM\n");
+    printf("======================================\n");
     printf("1. Add Employee\n");
     printf("2. Display Employees\n");
-    printf("3. Add Budget\n");
-    printf("4. Display Budgets\n");
-    printf("5. Show Reports\n");
-    printf("6. Exit\n");
+    printf("3. Add Supplier\n");
+    printf("4. Display Suppliers\n");
+    printf("5. Add Asset\n");
+    printf("6. Display Assets\n");
+    printf("7. Add Budget\n");
+    printf("8. Display Budgets\n");
+    printf("9. Save Data\n");
+    printf("10. Load Data\n");
+    printf("11. Exit\n");
     printDivider();
 }
 
-void printEmployeeSummary(const Employee employees[], int count)
+void printEmployeeList(const Employee employees[], int count)
 {
-    printf("\n=== EMPLOYEE SUMMARY ===\n");
-    if (count == 0)
-    {
-        printf("No employees recorded.\n");
-        return;
-    }
-
+    printf("\n--- EMPLOYEE LIST ---\n");
     for (int i = 0; i < count; i++)
     {
         displayEmployee(&employees[i]);
         printf("\n");
     }
-    printf("Total payroll: %.2f\n", totalPayroll(employees, count));
 }
 
-void printBudgetSummary(const BudgetItem budgets[], int count)
+void printSupplierList(const Supplier suppliers[], int count)
 {
-    printf("\n=== BUDGET SUMMARY ===\n");
-    if (count == 0)
+    printf("\n--- SUPPLIER LIST ---\n");
+    for (int i = 0; i < count; i++)
     {
-        printf("No budgets recorded.\n");
-        return;
+        displaySupplier(&suppliers[i]);
+        printf("\n");
     }
+}
 
+void printAssetList(const Asset assets[], int count)
+{
+    printf("\n--- ASSET LIST ---\n");
+    for (int i = 0; i < count; i++)
+    {
+        displayAsset(&assets[i]);
+        printf("\n");
+    }
+}
+
+void printBudgetList(const Budget budgets[], int count)
+{
+    printf("\n--- BUDGET LIST ---\n");
     for (int i = 0; i < count; i++)
     {
         displayBudget(&budgets[i]);
         printf("\n");
     }
-    printf("Total budget: %.2f\n", totalBudget(budgets, count));
-}
-
-void printOverallSummary(const Employee employees[], int count, const BudgetItem budgets[], int budgetCount)
-{
-    printf("\n=== OVERALL REPORT ===\n");
-    printf("Employee count: %d\n", count);
-    printf("Budget count: %d\n", budgetCount);
-    printf("Total payroll: %.2f\n", totalPayroll(employees, count));
-    printf("Total budget: %.2f\n", totalBudget(budgets, budgetCount));
 }

@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 
 #include "utilities.h"
@@ -45,5 +44,5 @@ void clearInputBuffer(void)
 
 void printDivider(void)
 {
-    printf("----------------------------------------\n");
+    printf("----------------------------------------------\n");
 }
